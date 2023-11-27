@@ -12,6 +12,7 @@ import werkzeug.utils
 from werkzeug.exceptions import abort as _wz_abort
 from werkzeug.utils import redirect as _wz_redirect
 
+from . import typing as ft
 from .globals import _cv_request
 from .globals import current_app
 from .globals import request
@@ -230,7 +231,7 @@ def url_for(
 
 def redirect(
     location: str, code: int = 302, Response: type[BaseResponse] | None = None
-) -> BaseResponse:
+) -> ft.ResponseClass:
     """Create a redirect response object.
 
     If :data:`~flask.current_app` is available, it will use its
